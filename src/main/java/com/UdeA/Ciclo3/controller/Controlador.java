@@ -16,12 +16,13 @@ public class Controlador {
     @Autowired  //Para mantener enlazado...
     EmpresaService empresaService;  //Permite usar todos los métodos de la clase EmpresaService.
 
-    @GetMapping ({"/Empresas","/VerEmpresas"})
+    @GetMapping ({"/","/VerEmpresas"})
     public String viewEmpresas(Model model){    //Model es un método que podemos usar para establecer características.
         List<Empresa> listaEmpresas=empresaService.getAllEmpresas();
         //El modelo va a ser "emprList" y se va a alimentar de listaEmpresas
         model.addAttribute("emprList", listaEmpresas);
-        return "verEmpresas";   //Este String debe coincidir con nuestro archivo HTML en templates.
+        return "verEmpresas";   //Llamamos al archivo HTML en templates con exactamente el mismo nombre.
 
     }
+
 }

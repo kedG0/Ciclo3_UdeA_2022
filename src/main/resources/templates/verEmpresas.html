@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thyneleaf.org">    <!-- thyneleaf es un motor que permite usar y adapatar las plantillas, especialmente el modelo "vista/controlador" -->
+<head>
+    <title>Lista de Empresas - Ciclo 3</title>
+    <meta charset="utf-8">  <!-- Esta codificación permite usar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">    <!-- Plantilla de diseño -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    <!--  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <!-- Une los anteriores dos -->
+</head>
+<body>
+
+<div class="container">   <!-- Ajusta su contenido a lo establecido para el contenedor, como los márgenes -->
+    <h1>Lista de Empresas</h1>
+
+    <!-- Dibujamos la tabla -->
+    <table class="table">     <!-- Creación de tabla -->
+        <tr>    <!-- Borde exterior de la tabla -->
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>NIT</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+
+        <!-- Llenamos la tabla dibujada usando el método viewEmpresas del controlador-->
+        <!-- th=columna, td=fila -->
+        <tr th:each="empresa : ${emprList}">    <!-- Estamos usando th y no HTML. Decimos que cada elemento de emprList es una empresa -->
+            <td th:text="${empresa.id}"></td>
+            <td th:text="${empresa.nombre}"></td>
+            <td th:text="${empresa.direccion}"></td>
+            <td th:text="${empresa.telefono}"></td>
+            <td th:text="${empresa.NIT}"></td>
+            <td>
+                <button type="button" class="btn btn-warning">  <!-- https://www.w3schools.com/bootstrap/bootstrap_buttons.asp -->
+                    <a th:href="@{/editarEmpresa}">   <!-- Al clickear el botón nos redirige a una página o clase específica -->
+                        Editar
+                    </a>
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger">
+                    <a th:href="@{/eliminarEmpresa}">   <!-- Al clickear el botón nos redirige a una página específica -->
+                        Eliminar
+                    </a>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
