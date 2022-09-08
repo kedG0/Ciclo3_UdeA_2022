@@ -25,4 +25,10 @@ public class Controlador {
 
     }
 
+    @GetMapping("/AgregarEmpresa")
+    public String nuevaEmpresa(Model model){
+        Empresa emp= new Empresa();
+        model.addAttribute("empr", emp);
+        return "agregarEmpresa";
+    }
 }

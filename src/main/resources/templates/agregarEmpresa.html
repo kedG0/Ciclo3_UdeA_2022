@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thyneleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Nueva Empresa</title>
+    <meta charset="utf-8">  <!-- Esta codificación permite usar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">    <!-- Plantilla de diseño -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    <!--  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <!-- Une los anteriores dos -->
+    <!-- para el estilo de los botones más adelante. Letras de los hipervínculos "href" blancas y cuando se seleccionen que sean negras: -->
+    <style>
+        a{
+            color:white;
+        }
+        a:hover {
+            color:black;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">   <!-- Ajusta su contenido a lo establecido para el contenedor, como los márgenes -->
+        <h1>Agregue aquí los datos de la Empresa</h1>
+        <br>
+        <!-- Crear formulario para llenar los datos de la empresa y guardarlos en el objeto empr -->
+        <form th:action="@{/GuardarEmpresa}" th:object="${empr}" method="post">   <!-- Estamos creando un formulario. El "post" es el equivalente al "set". -->
+            <!-- Campo para nombre: -->
+            <div class="row">
+                <div class="form-group col-md-12"> <!-- col-md indica los espacios que ocupará cada elemento en pantalla, dividiéndolo en columnas -->
+                    <label class="col-md-3" for="nombre">
+                        Nombre de la Empresa
+                    </label>
+                    <div class="col-md-6">
+                        <input type="text" th:field="*{nombre}" class="form-control" id="nombre" required="required">    <!-- Ingresar info de tipo texto en el campo nombre del elemento Empresa. Esto es un campo obligatorio por required -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo para dirección: -->
+            <div class="row">
+                <div class="form-group col-md-12"> <!-- col-md indica los espacios que ocupará cada elemento en pantalla, dividiéndolo en columnas -->
+                    <label class="col-md-3" for="direccion">
+                        Dirección de la Empresa
+                    </label>
+                    <div class="col-md-6">
+                        <input type="text" th:field="*{direccion}" class="form-control" id="direccion" required="required">    <!-- Ingresar info de tipo texto en el campo nombre del elemento Empresa. Esto es un campo obligatorio por required -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo para teléfono: -->
+            <div class="row">
+                <div class="form-group col-md-12"> <!-- col-md indica los espacios que ocupará cada elemento en pantalla, dividiéndolo en columnas -->
+                    <label class="col-md-3" for="telefono">
+                        Teléfono de la Empresa
+                    </label>
+                    <div class="col-md-6">
+                        <input type="text" th:field="*{telefono}" class="form-control" id="telefono" required="required">    <!-- Ingresar info de tipo texto en el campo nombre del elemento Empresa. Esto es un campo obligatorio por required -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo para NIT: -->
+            <div class="row">
+                <div class="form-group col-md-12"> <!-- col-md indica los espacios que ocupará cada elemento en pantalla, dividiéndolo en columnas -->
+                    <label class="col-md-3" for="NIT">
+                        NIT de la Empresa
+                    </label>
+                    <div class="col-md-6">
+                        <input type="text" th:field="*{NIT}" class="form-control" id="NIT" required="required">    <!-- Ingresar info de tipo texto en el campo nombre del elemento Empresa. Esto es un campo obligatorio por required -->
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</body>
+</html>
